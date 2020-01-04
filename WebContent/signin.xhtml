@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Sign In Template for BootsFaces</title>
+
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 50px;
+                padding: 15px;
+                height: 50px;
+            }
+        </style>
+    </h:head>
+		 <ui:composition template="template/bootsFacesTemplate/index.xhtml">
+				 <ui:define name="content">
+				   <f:view>
+						    <h:body style="padding-top: 50px; background-color: #add;">
+						        <b:container>
+						            <h:form styleClass="form-signin" prependId="false" method="post">
+                        <c:set var="pers" value="#{ConnectionManager.personne}"/>
+                         <c:choose>
+                         <c:when test="${pers.id eq null}">
+                         <p:tabView>
+                          <p:tab>
+                          <h2 class="form-signin-heading">Please sign in</h2>
+                          <b:inputText id="email" value="#{pers.email}" placeholder="Email address" >
+                              <f:facet name="prepend">
+                                  <b:icon name="user" />
+                              </f:facet>
+                          </b:inputText>
+                          <b:inputText id="password" value="#{pers.motdepasse}" placeholder="Password" type="password">
+                              <f:facet name="prepend">
+                                  <b:iconAwesome name="key" />
+                              </f:facet>
+                          </b:inputText>
+                          <b:selectBooleanCheckbox value="true" caption="remember me"/>
+                          <b:commandButton
+                          action="#{ConnectionManager.connectedPerson()}"
+                           look="primary btn-block" value="Sign In" icon="log-in" size="lg"/>
+                        </p:tab>
+                       </p:tabView>
+                       </c:when>
+                       <c:otherwise></c:otherwise>
+                       </c:choose>
+
+						            </h:form>
+						        </b:container>
+						    </h:body>
+						  </f:view>
+				    </ui:define>
+		  </ui:composition>
+</html>

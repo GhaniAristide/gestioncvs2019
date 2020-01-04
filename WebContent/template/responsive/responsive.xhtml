@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gestion des CV </title>
+     <!--  <h:outputScript library="js" name="layout.js" /> -->
+    <link type="text/css" rel="stylesheet" href="resources/css/mynew.css?ln=css" />
+
+</h:head>
+<h:body>
+    <f:facet name="last">
+    	<h:outputStylesheet library="css" name="style.css" />
+        <h:outputStylesheet library="css" name="w3.css" />
+        <h:outputStylesheet library="css" name="w3-colors-flat.css" />
+        
+    </f:facet>
+    
+    <p:outputPanel id="header" styleClass="w3-bar w3-top" style="z-index:255;">
+        <ui:insert name="header">
+            <ui:include src="common-header.xhtml" />
+        </ui:insert>
+    </p:outputPanel>
+
+    <p:outputPanel id="body" styleClass="w3-cell-row">
+        <!-- sidebar panel -->
+        <p:outputPanel id="layoutSidebar" class="w3-sidebar w3-padding-48 w3-bar-block w3-border-right w3-card w3-animate-left"
+                       style="width:#{profile.sidebarWidth}px;z-index:250;">
+            <ui:insert name="sidebar">
+                <ui:include src="common-sidebar.xhtml" />
+            </ui:insert>
+        </p:outputPanel>
+
+        <!-- main content of the page -->
+        <p:outputPanel id="mainContent" styleClass="w3-container w3-padding-48 w3-margin-top"
+                       style="margin-left:#{profile.sidebarWidth}px;">
+            <ui:insert name="content" />
+        </p:outputPanel>
+    </p:outputPanel>
+
+    <!-- footer of the page -->
+    <p:outputPanel id="footer" styleClass="w3-cell-row w3-bottom w3-padding w3-border-top w3-small w3-white" style="margin-left:#{profile.sidebarWidth}px;">
+        <ui:insert name="footer">
+            <ui:include src="common-footer.xhtml" />
+        </ui:insert>
+    </p:outputPanel>
+
+    <h:outputScript>
+        /**
+        * Toggles the visibility of the navigation sidebar. If it is visible, it will be hidden and if it
+        * was hidden, it will be shown. When showing or hiding the sidebar, the main content area will be
+        * modified as well in order to reflect the latest changes in screen width.
+        */
+        function toggle_sidebar_nav() {
+            var sidebarNav = document.getElementById("layoutSidebar");
+            var mainContent = document.getElementById("mainContent");
+            var footer = document.getElementById("footer");
+
+            if (sidebarNav.style.display != "none") {
+                sidebarNav.style.display = "none";
+                mainContent.style.marginLeft = "0px";
+                footer.style.marginLeft = "0px";
+            } else {
+                sidebarNav.style.display = "block";
+                sidebarNav.style.width = "#{profile.sidebarWidth}px";
+                mainContent.style.marginLeft = "#{profile.sidebarWidth}px";
+                footer.style.marginLeft = "#{profile.sidebarWidth}px";
+            }
+        }
+    </h:outputScript>
+
+</h:body>
+</html>

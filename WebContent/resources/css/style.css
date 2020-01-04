@@ -1,0 +1,35 @@
+h1.my-style {
+    border-bottom: solid 2px blue;
+}
+
+.value {
+        font-weight: bold;
+    }
+     
+.ui-datatable {
+        margin-bottom: 25px
+    }
+     
+.ui-datatable .ui-datatable-footer {
+        text-align:left;
+    }
+     
+ .ui-datalist ul {
+        padding: 0 0 0 10px;
+        margin: 5px 0;
+    }
+     
+ .ui-datatable .ui-button-icon-only .ui-button-text {
+        padding: 0;
+        line-height: 1.2;
+    }
+    
+    
+    
+ .ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell {
+        text-align: center;
+    }
+ 
+ .customPanelGrid .ui-panelgrid-content {
+        align-items: center;
+    }

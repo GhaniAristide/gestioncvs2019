@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+      			xmlns:b="http://bootsfaces.net/ui"
+      			xmlns:c="http://java.sun.com/jsp/jstl/core">
+ 		<h:outputScript library="holder" name="holder.js" />
+        <!--script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.5.2/holder.min.js"></script-->
+        <b:navBar brand="Gestion des CVS" brandHref="#" inverse="true" fixed="top" fluid="true">
+
+            <b:navbarLinks pull="right">
+             
+                <b:navLink value="Dashboard" href="listepersonne.xhtml"></b:navLink>
+
+                <!-- quand une personne n'est pas connecté -->
+                <c:set var="pers" value="#{ConnectionManager.authenticatePersonne}" scope="session"/>
+                <c:choose>
+	                <c:when test="${ConnectionManager.isauthenticated eq false}">
+		                  <b:navLink value="connexion" href="signin.xhtml" icon-awesome="fa-power-off ">
+		                  </b:navLink>
+	                </c:when>
+                  <c:otherwise></c:otherwise>
+                </c:choose>
+
+
+
+
+                <b:navLink value="create compte" href="#"></b:navLink>
+
+
+                <!-- Quand la personne est Authentifée -->
+
+                <c:set var="pers" value="#{ConnectionManager.authenticatePersonne}" scope="session"/>
+                <c:choose>
+                <c:when test="${ConnectionManager.isauthenticated eq true}">
+                <b:navLink value="logout" href="#"></b:navLink>
+              </c:when>
+	                <c:otherwise></c:otherwise>
+              </c:choose>
+
+            </b:navbarLinks>
+
+        </b:navBar>
+
+</ui:composition>

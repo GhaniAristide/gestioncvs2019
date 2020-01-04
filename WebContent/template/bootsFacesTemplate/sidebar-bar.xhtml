@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+      			xmlns:b="http://bootsfaces.net/ui"
+      			xmlns:c="http://java.sun.com/jsp/jstl/core"
+            >
+ 		<h:outputScript library="holder" name="holder.js" />
+        <!--script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.5.2/holder.min.js"></script-->
+
+        <b:column col-sm="3" col-md="2" styleClass="sidebar">
+                    <b:listLinks>
+                    <c:set var="pe" value="#{ConnectionManager.personne}"/>
+                       <c:choose>
+                       <c:when test="${ConnectionManager.isauthenticated eq true}">
+                         <b:navLink header="Welcom to Admin Panel" value="#{pe.nom}" />
+                     </c:when>
+                         <c:otherwise></c:otherwise>
+                     </c:choose>
+
+
+                        <b:navLink  value="Liste des Personnes" href="listepersonne.xhtml"  active="true" iconAwesome="user"/>
+                        <b:navLink value="Liste des Activités"  href="listedesactivites.xhtml" iconAwesome="tasks"/>
+
+                        <b:navLink href="#" value="Export" />
+                    </b:listLinks>
+
+                    <b:listLinks>
+                        <b:navLink value="Nav item again" />
+                        <b:navLink value="One more nav" />
+                        <b:navLink value="Another nav item" />
+                    </b:listLinks>
+                </b:column>
+
+</ui:composition>

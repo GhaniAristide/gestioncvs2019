@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:b="http://bootsfaces.net/ui"
+    >
+
+<!-- <ui:composition template="template/responsive/responsive.xhtml"> -->
+<ui:composition template="template/bootsFacesTemplate/index.xhtml">
+    <ui:define name="content">
+        <f:view>
+          				 <h1>
+						   List des Personnes 
+						 </h1>
+           <h:form>
+               <h:dataTable value="#{webmanagervers2.findAllPersonne()}" var="o"
+				    styleClass="table table-hover" headerClass="danger"
+				    footerClass="danger" rowClasses="success,warning">
+				    
+						 
+                      
+        			
+				    <h:column>
+				        <f:facet name="header">Id</f:facet>
+				        <h:outputText value="#{o.id}" />
+				    </h:column>
+				    <h:column>
+				        <f:facet name="header">Nom</f:facet>
+				        <h:outputText value="#{o.nom}" />
+				    </h:column>
+				    <h:column>
+				        <f:facet name="header">Prenoms</f:facet>
+				        <h:outputText value="#{o.prenoms}" />
+				    </h:column>
+				    <h:column>
+				        <f:facet name="header">Action</f:facet>
+				        <h:commandLink value="Show" styleClass="btn btn-primary btn-xs"
+				            action="#{webmanagervers2.viewPersonne(o.id)}" />
+				    </h:column>
+				</h:dataTable>
+               
+            </h:form>
+
+        </f:view>
+        
+        
+    </ui:define>
+  </ui:composition>
+  </html>

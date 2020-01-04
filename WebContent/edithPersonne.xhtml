@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:c="http://java.sun.com/jsp/jstl/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="template/bootsFacesTemplate/index.xhtml">
+<ui:define name="content">
+<f:view>
+
+
+    <h1>Personne</h1>
+    <h:form id="test">
+        <c:set var="person" value="#{webmanagervers2.personne}" />
+
+	        <div class="form-group">
+	        	<h:panelGrid columns="3">
+	        		<label for="name">Nom:</label>
+			            <h:inputText id="nom" value="#{person.nom}" styleClass="form-control"  
+			              required="true" requiredMessage="Le nom est obligatoire"/>
+			            <h:message styleClass="label label-danger" for="nom" />
+	        	</h:panelGrid>
+			            
+	        </div>
+	        <div class="form-group">
+			    <label for="level">Prenoms:</label>
+			    <h:selectOneMenu id="prenoms" value="#{person.prenoms}"
+			        styleClass="form-control" required="false">
+			        <f:selectItem itemValue="" itemLabel="--" />
+			        <f:selectItems value="#{params.levels}" />
+			    </h:selectOneMenu>
+			</div>
+			
+			<div class="form-group">
+	        	<h:panelGrid columns="3">
+	        		<label for="name">Date de Naissance:</label>
+			            <h:inputText id="dateNaissance" value="#{person.dateNaissance}" styleClass="form-control"  
+			              required="true" requiredMessage="La date de naissance est obligatoire"/>
+			            <h:message styleClass="label label-danger" for="dateNaissance" />
+	        	</h:panelGrid>
+			            
+	        </div>
+
+        <div class="form-group">
+            <label for="hours">Adresse Email:</label>
+            <h:inputText id="email" value="#{person.email}"
+                styleClass="form-control" required="true" />
+            <h:message styleClass="label label-danger" for="email" />
+        </div>
+        
+        <div class="form-group">
+	        	<h:panelGrid columns="3">
+	        		<label for="name">Mot de passe:</label>
+			            <h:inputText id="motdepasse" value="#{person.motdepasse}" styleClass="form-control"  
+			              required="true" requiredMessage="Le mot de passe est obligatoire"/>
+			            <h:message styleClass="label label-danger" for="motdepasse" />
+	        	</h:panelGrid>
+			            
+	        </div>
+
+        <div class="form-group">
+            <label for="description">Site Web:</label>
+            <h:inputTextarea id="website" value="#{person.website}"
+                styleClass="form-control" cols="50" rows="5" />
+            <h:message styleClass="label label-danger" for="website" />
+        </div>
+
+        <div class="form-group">
+            <h:commandButton action="#{webmanagervers2.addPersonne()}"
+                styleClass="btn btn-primary" value="Save" />
+            <span> </span>
+            <h:link styleClass="btn btn-info" outcome="listepersonne" value="Quit"/>
+        </div>
+    </h:form>
+
+</f:view>
+
+</ui:define>
+</ui:composition>
+
+</html>

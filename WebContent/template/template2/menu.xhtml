@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition>
+    <ul class="dropdown-menu">
+    <li>
+	    <h:form>
+	    			 <h:commandLink styleClass="btn btn-primary"
+                        action="hello">Hello</h:commandLink> 
+	    </h:form>
+     
+    </li>
+    <li>
+	    <h:form>
+	    			 <h:commandLink styleClass="btn btn-primary"
+                        action="formtest">FormTest</h:commandLink> 
+	    </h:form>
+     
+    </li>
+    <li>
+	    <h:form>
+	    			 <h:commandLink styleClass="btn btn-primary"
+                        action="use-alerts">Use Alert</h:commandLink> 
+	    </h:form>
+     
+    </li>
+    <li>
+	    <h:form>
+	    			 <h:commandLink styleClass="btn btn-primary"
+                        action="courses">Courses</h:commandLink> 
+	    </h:form>
+     
+    </li>
+    <li>
+    		<h:form>
+	    	<h:commandLink styleClass="btn btn-primary"
+                        action="showCourse">show Course</h:commandLink>
+	    </h:form>
+    </li>
+    <li>
+    		<h:form>
+	    	<h:commandLink styleClass="btn btn-primary"
+                        action="editCourse">Edit Course</h:commandLink>
+	    </h:form>
+    </li>
+    
+      <li>
+	    <h:form>  
+                      <p>
+				    		<h:commandLink action="#{navigation.hello}"
+				        	value="Controller to Hello" />
+						</p>
+	    </h:form>
+     
+    </li> 
+    <li>
+	    <h:form>
+                      <h:commandLink styleClass="btn btn-primary"
+                        action="counter">Counter</h:commandLink> 
+	    </h:form>
+     
+    </li>
+    <li>
+    		<h:form>
+	    	<h:commandLink styleClass="btn btn-primary"
+                        action="bye">Bye</h:commandLink>
+	    </h:form>
+    </li>
+    </ul>
+</ui:composition>
+
+</html>

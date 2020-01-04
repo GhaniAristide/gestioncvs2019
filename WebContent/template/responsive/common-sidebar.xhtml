@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui">
+
+
+        <header class="w3-padding w3-gray">
+            <h3>Test</h3>
+        </header>
+
+        <h:outputLink value="#" styleClass="w3-bar-item w3-button">Welcom to Dashboard</h:outputLink>
+        <h:form>
+              <p:menu>
+        <p:submenu label="Personnes">
+            <p:menuitem value="Liste des Personnes" action="listepersonne"  icon="fa fa-user"/>
+        </p:submenu>
+        <p:submenu label="Activites">
+            <p:menuitem value="Liste des Activités" action="/listedesactivites"  icon="fa fa-briefcase"/>
+        </p:submenu>
+        <p:submenu label="Navigations">
+            <p:menuitem value="External" url="http://www.primefaces.org" icon="pi pi-home"/>
+            <p:menuitem value="Internal" icon="pi pi-star"/>
+        </p:submenu>
+    </p:menu>
+        </h:form>
+       
+      <!--  <ul>
+      
+        <li>
+	    <h:form><h:commandLink styleClass="btn btn-primary" action="listepersonne">Liste Personne</h:commandLink> 
+	    </h:form>
+	     </li>
+	     <li>
+	    <h:form><h:commandLink styleClass="btn btn-primary" action="accueil">Accueil</h:commandLink> 
+	    </h:form>
+	    <h:form><h:commandLink styleClass="btn btn-primary" action="listedesactivites">Liste des Activites</h:commandLink> 
+	    </h:form>
+       </li>
+      </ul>  -->
+
+
+</ui:composition>
